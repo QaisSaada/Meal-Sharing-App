@@ -87,6 +87,12 @@ router.delete("/:id", async (request, response) => {
           response.send(limit)
   });*/
 
+  
+  router.delete("/:id", async (request, response) => {
+  const meal = await knex("meal").where({id: request.params.id}).del();
+  response.json(meal);
+})
+
   router.get("/", async (request, response) => {
     const meals = await knex("meal").select();
     let filteredMealsByPrice = [];

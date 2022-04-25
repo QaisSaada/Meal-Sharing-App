@@ -10,7 +10,7 @@ try {
   const allReservations = await knex("reservation").select();
   response.json(allReservations)
 } catch (error) {
-  throw error;
+  console.log(error);
 }
 });
 // Adds a new reservation
@@ -21,7 +21,7 @@ router.post("/", async (request, response) => {
     response.json({"success": true})
   } catch (error) {
     response.json({"success": false})
-    throw error;
+    // throw error;
   }
 });
 // Returns reservation by id

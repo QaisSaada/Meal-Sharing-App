@@ -25,6 +25,23 @@ import { Link } from "react-router-dom";
 export default Footer;
 
 
+const lights = document.getElementsByTagName("div");
+  
+for (let i = 0; i < lights.length; i++){
+  lights[i].animate([
+  // keyframes
+  { opacity: '0' },
+  { opacity: '1' }
+], {
+  // timing options
+  duration: 1000 + Math.random() * 1000,
+  iterations: Infinity,
+    direction: "alternate",
+    iterationStart: Math.random() * 1000,
+});
+}
+
+
 {/* <div class="tenor-gif-embed"
  data-postid="21769336"
   data-share-method="host"
