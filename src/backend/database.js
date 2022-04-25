@@ -5,6 +5,7 @@ console.log('MAMAMIA', process.env.DB_PASSWORD, process.env.DB_NAME,)
 let knex;
 try {
   knex = require("knex")({
+
     client: "mysql2",
     connection: {
       host: process.env.DB_HOST,
