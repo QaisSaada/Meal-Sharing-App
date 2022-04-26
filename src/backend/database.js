@@ -2,10 +2,9 @@ require("dotenv").config();
 
 console.log('MAMAMIA', process.env.DB_PASSWORD, process.env.DB_NAME,)
 // create connection
-
+let knex;
 try {
-
-  const knex = require("knex")({
+  knex = require("knex")({
     client: "mysql2",
     connection: {
       host: process.env.DB_HOST,
