@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { Button, Checkbox, Form } from 'semantic-ui-react'
-import axios from 'axios';
+import { Form, Checkbox, Button } from 'semantic-ui-react'; 
+import '../StyleComp/Update.css'; 
 
 
 const Update = (props) => {
@@ -27,17 +27,17 @@ const Update = (props) => {
 }, []);
 
     const updateAPIData = () => {
-        axios.put(props.api, {id 
-            , title 
-            , description 
-            , location 
-            , price 
-            , maxreservations 
-            , createddate 
-            , whenn
-            , checkbox})
+        fetch(props.api + "/api/meals/", {method: "PUT", body: JSON.stringify({title,
+            description,
+            location,
+            price,
+            maxreservations,
+            createddate,
+            whenn,
+            checkbox})
+        }).then(res => console.log(res)).catch(err => console.log(err))
     }
-    return (
+    return( 
     <Form className="update-form">
         <Form.Field>
             <label>Title</label>

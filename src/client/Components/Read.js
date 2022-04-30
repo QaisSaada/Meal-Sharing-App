@@ -1,20 +1,30 @@
 import React,  { useEffect, useState }  from 'react'
-import { Table, Button } from 'semantic-ui-react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-
+import { Link  } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
+import '../StyleComp/Read.css'; 
 
 
 const Read = (props) => {
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [checkbox, setCheckbox] = useState(false); 
+    const [location, setLocation] = useState('');
+    const [price, setPrice] = useState(''); 
+    const [maxreservations, setMaxreservations] = useState(null);
+    const [createddate, setCreateddate] = useState(new Date())
+    const [whenn, setWhenn] = useState(new Date()) 
+    const [id, setID] = useState(null)    
 const [APIData, setAPIData] = useState([]);
 useEffect(() => {
-    axios.get(props.api + "/api/meals")
-    .then((response) => {
-        console.log("Got response");
-        console.log(response.data);
-        setAPIData(response.data);
-    })
+    fetch(props.api + "/api/meals/", {method: "GET"})
+    .then(response => response.json())
+    .then((data) => {
+      console.log("Got response");
+      console.log(data);
+      setAPIData(data);
+    }).catch(err => console.log(err))
 }, [])
+
 const setData = (data) => {
     let { id,
         title,
@@ -26,6 +36,7 @@ const setData = (data) => {
         whenn,
         checkbox 
     } = data;
+    
     localStorage.setItem('ID', id);
     localStorage.setItem('title', title);
     localStorage.setItem('description', description);
@@ -37,68 +48,49 @@ const setData = (data) => {
     localStorage.setItem('Checkbox Value', checkbox)
  }
 
- const onDelete = (id) => {
- axios.delete(props.api + "/api/meals/" 
- + {id 
- , title 
- , description 
- , location 
- , price 
- , maxreservations 
- , createddate 
- , whenn
- , checkbox})
- .then(() => {
-     getData();
+  const onDelete = (id) => {
+    fetch(props.api + "/api/meals/" + {id}, {method: "DELETE"}).then(() => {
+    getData();
  })
-}
+ } 
 
 const getData = () => {
-    axios.get(props.api + "/api/meals/")
-    .then((getData) => {
+    fetch(props.api + "/api/meals/", {method: "GET", body: JSON.stringify({title,
+        description,
+        location,
+        price,
+        maxreservations,
+        createddate,
+        whenn})
+    }).then((getData) => {
     setAPIData(getData.data);
          })
 }
   return (
-            <Table singleLine>
-                <Table.HeaderCell>Update</Table.HeaderCell>
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell>title</Table.HeaderCell>
-                        <Table.HeaderCell>description</Table.HeaderCell>
-                        <Table.HeaderCell>Location</Table.HeaderCell>
-                        <Table.HeaderCell>maxrese rvations</Table.HeaderCell>
-                        <Table.HeaderCell>createddate</Table.HeaderCell>
-                        <Table.HeaderCell>price</Table.HeaderCell>
-                        <Table.HeaderCell>whenn</Table.HeaderCell>
-                    </Table.Row>
-                </Table.Header>
-
-                <Table.Body>
-                 {APIData.map((data) => {
-                  return ( 
-                  <Table.Row   key={data.data}>
-                  <Table.Cell  >{data.title}</Table.Cell>
-                  <Table.Cell  >{data.location}</Table.Cell>
-                  <Table.Cell  >{data.description}</Table.Cell>
-                  <Table.Cell  >{data.price}</Table.Cell>
-                  <Table.Cell  >{data.maxreservations}</Table.Cell>
-                  <Table.Cell  >{data.createddate}</Table.Cell>
-                  <Table.Cell  >{data.whenn}</Table.Cell>
-{/*                   <Table.Cell>{data.checkbox ? 'Checked' : 'Unchecked'}</Table.Cell>
- */}                  <Link to='/update'>
-                  <Table.Cell> 
-                  <Button onClick={() => setData(data)}>Update</Button>
-                  </Table.Cell>
-                  </Link>
-                  <Table.Cell>
-                 <Button onClick={() => onDelete(data.id)}>Delete</Button>
-                 </Table.Cell> 
-                </Table.Row>
-   )})}
-</Table.Body>
-            </Table>
-  )
-}
+  <div>
+      <h1>Featured meals</h1>
+      <div className='item-container'>
+        {APIData.map((data) => (
+          <div className='card' key={data.id}>
+            <img src={""} alt='' />
+            <h3>{data.title}</h3>
+            <p>{data.description}</p>
+            <p>{data.price}</p>
+            <Link to = '/update'>
+            <Button onClick={() => setData(data)}>Update</Button>
+            </Link>
+            <Link to={`/meals/${data.id}`}>
+            <Button>View</Button>
+            </Link>
+{/*             <Button onClick={() => onDelete(data)}>Delete</Button>
+ */}          </div>
+          
+        ))}
+      </div>
+    </div>);
+};
 
 export default Read;
+
+
+

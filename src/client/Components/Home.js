@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../StyleComp/Navbar';
 import Footer from '../StyleComp/Footer';
+import Navbar from '../StyleComp/Navbar';
 
 function Home() {
   return (
