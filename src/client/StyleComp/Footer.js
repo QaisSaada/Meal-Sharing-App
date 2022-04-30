@@ -2,51 +2,73 @@ import React from 'react'
 import '../StyleComp/FooterStyle.css'; 
 import { Link } from "react-router-dom";
 
-
  const Footer= () => {
     
   return (
-    <div>
-      <img src="https://bestanimations.com/media/pizza/1013943786pizza-slice-animated-gif-31.gif"/>
-    <footer>
-  <div className='foot' id='red'></div>
-  <div id='orange'></div>
-  <div id='yellow'></div>
-  <div id='green'></div>
-  <div id='blue'></div>
-  <div id='indigo'></div>
-  <div id='violet'></div>
-    </footer>
+    <div className='main-footer'>
+    <div className='container'>
+    <div className='row'>
+    {/*{colomn 1}*/}
+    <div className='col-md-3 col-sm-6'>
+    <h4>what ever 1 2</h4>  
+    <ul className='list-unstyled'>
+      <li>asd, asd</li>
+      <li>asd ,asd</li>
+      <li>asd ,asd</li>
+      <li>asd ,asd</li>
+    </ul>
+    </div>
 
-   </div>
-  )
+    {/*{colomn 2}*/}
+    <div className='col-md-3 col-sm-6'>
+    <h4>what ever 3</h4>  
+    <ul className='list-unstyled'>
+      <li>asd, asd</li>
+      <li>asd ,asd</li>
+      <li>asd ,asd</li>
+      <li>asd ,asd</li>
+    </ul>
+    </div>
+
+    {/*{colomn 3}*/}
+    <div className='col-md-3 col-sm-6'>
+    <h4>what ever 4</h4>  
+    <ul className='list-unstyled'>
+      <li>asd, asd</li>
+      <li>asd ,asd</li>
+      <li>asd ,asd</li>
+      <li>asd ,asd</li>
+    </ul>
+    </div>
+
+    {/*{colomn 4}*/}
+    <div className='col-md-3 col-sm-6'>
+    <h4>what ever</h4>  
+    <ul className='list-unstyled'>
+      <li>asd, asd</li>
+      <li>asd ,asd</li>
+      <li>asd ,asd</li>
+      <li>asd ,asd</li>
+    </ul>
+    </div>
+
+    
+
+    </div>
+    {/*footer-bottom*/}  
+    <div className='.footer-bottom'>
+    <p className='text-xs-center'>copywrite
+    &copy;{/* {new Date().getFullYear} */} all rights protected
+    </p>
+    </div>
+    </div>
+    </div>
+
+    )
 }
 
 export default Footer;
 
 
-const lights = document.getElementsByTagName("div");
-  
-for (let i = 0; i < lights.length; i++){
-  lights[i].animate([
-  // keyframes
-  { opacity: '0' },
-  { opacity: '1' }
-], {
-  // timing options
-  duration: 1000 + Math.random() * 1000,
-  iterations: Infinity,
-    direction: "alternate",
-    iterationStart: Math.random() * 1000,
-});
-}
 
 
-{/* <div class="tenor-gif-embed"
- data-postid="21769336"
-  data-share-method="host"
-   data-aspect-ratio="1"
-    data-width="100%">
-<a href="https://tenor.com/view/foodbyjag-jagyasini-singh-pav-bhaji-mumbai-pav-pav-gif-21769336">Foodbyjag Jagyasini Singh Sticker</a>
-from 
-<a href="https://tenor.com/search/foodbyjag-stickers">Foodbyjag Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script> */}

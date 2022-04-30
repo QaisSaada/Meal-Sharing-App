@@ -8,12 +8,12 @@ function Navbar() {
     <div>
     <nav>
       <header className='navbar'> 
-      <div className='navbar__title navbar__item'>Welcome to Meal Sharing App</div>
+      <div className='navbar__title navbar__item'>Meal Sharing App</div>
       <Link to="/createmeal">
-        <div className='navbar__item'>Create Meal</div>
+        <div className='navbar__item'>Create Reservation</div>
       </Link>
-      <Link to="/meals">
-        <div className='navbar__item'>Reservations</div>
+      <Link to="/meal">
+        <div className='navbar__item'>Meals we offer</div>
       </Link>
       <Link to="/update">
         <div className='navbar__item'>update</div>   

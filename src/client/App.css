@@ -1,31 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #212121;
-  color: whitesmoke;
-  flex-direction: column;
+@import url("https://images.cdn1.stockunlimited.net/preview1300/food-background_1305819.jpg");
+body {
+    margin: 0;
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
 }
 
-.main-header{
-  font-family: 'Montserrat', sans-serif;
-  color: whitesmoke; 
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-
-}
-
-.create-form {
-  color: whitesmoke !important;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
+main {
+    margin: 16px;
 }

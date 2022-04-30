@@ -5,6 +5,7 @@ import Create from './Components/Create';
 import Read from './Components/Read';
 import Update from './Components/Update';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Meal from './Components/Meal';
 
 function App() {
   const api = "http://localhost:5000"
@@ -14,8 +15,9 @@ function App() {
     <Routes> 
           <Route exact path='/' element={<Home api ={api}/>}></Route> 
           <Route exact path='/createmeal' element={<Create api ={api}/>}></Route>
-          <Route exact path='/meals' element={<Read api ={api}/>}/>
+          <Route exact path='/meal' element={<Read api ={api}/>}/>
           <Route path='/update' element={<Update api ={api}/>}/>
+          <Route path='/meals/:id' element={<Meal api ={api}/>}/>
     </Routes>         
     
  

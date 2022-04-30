@@ -1,24 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
-
-body {
-    margin: 0;
-    z-index: 99 !important;
-}
-
-main {
-    margin: 16px;
-}
-
 .navbar {
     display: flex;
     align-items: center;
-    
-    background:  #212121;
-    color: whitesmoke !important;
+    background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+    color: whitesmoke;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+    font-weight: 500;
 }
+
+
 
 .navbar__title {
     margin-right: auto;
@@ -29,5 +18,7 @@ main {
 .navbar__item {
     padding: 16px 16px;
     cursor: pointer;
+    font-size: 150%;
+    color:whitesmoke; 
     vertical-align: middle;
-}
+} 

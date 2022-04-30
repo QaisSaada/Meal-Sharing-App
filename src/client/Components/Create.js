@@ -1,68 +1,62 @@
 import React, {useState} from 'react'
-import { Button, Checkbox, Form } from 'semantic-ui-react'
-import axios from 'axios';
+import { useParams } from "react-router-dom";
+import { Form, Checkbox, Button } from 'semantic-ui-react'; 
+import '../StyleComp/Create.css'; 
+
 
 
 const Create = (props) => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [checkbox, setCheckbox] = useState(false); 
-    const [location, setLocation] = useState('');
-    const [price, setPrice] = useState('');
-    const [maxreservations, setMaxreservations] = useState(null);
-    const [createddate, setCreateddate] = useState(new Date())
-    const [whenn, setWhenn] = useState(new Date())
-/*     const [id, setId] = useState(null)
- */
+    const params = useParams();
+    const [numberofguists, setNumberofguists] = useState('');
+/*     const [mealid, setMealid] = useState(Number);
+ */    const [createddate, setCreateddate] = useState(false); 
+    const [contactphonenumber, setContactphonenumber] = useState('');
+    const [contactname, setContactname] = useState('');
+    const [contactemail, setContactemail] = useState(null);
 
+ 
+    const postData = (e) => {
+    e.preventDefault()
+    fetch(props.api + "/api/reservations/", {method: "POST", headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({numberofguists,
+        /* mealid, */
+        createddate,
+        contactphonenumber,
+        contactname,
+        contactemail,
+        })
+    }).then(res => console.log(res)).catch(err => console.log(err))
+    .then(alert("Your booking has been made"))
+    }
 
     
- 
-    const postData = () => {
-     axios.post(props.api, {
-         title,
-         description,
-         location,
-         price,
-         maxreservations,
-         createddate,
-         whenn,
-         checkbox
-     })
-    }
     return (
     <Form className="create-form">
         <Form.Field>
-            <label>Title</label>
-            <input placeholder='Title' onChange={(e) => setTitle(e.target.value)} />
+            <label>number of guists</label>
+            <input placeholder='' onChange={(e) => setNumberofguists(e.target.value)} />
+        </Form.Field>
+        {/* <Form.Field>
+            <label>meal id</label>
+            <input placeholder='' onChange={(e) => setMealid(e.target.value)} />
+        </Form.Field> */}
+        <Form.Field>
+            <label>contact phonen number</label>
+            <input placeholder='' onChange={(e) => setContactphonenumber(e.target.value)} />
         </Form.Field>
         <Form.Field>
-            <label>Description</label>
-            <input placeholder='description' onChange={(e) => setDescription(e.target.value)} />
+            <label>contact name</label>
+            <input placeholder='' onChange={(e) => setContactname(e.target.value)} />
         </Form.Field>
         <Form.Field>
-            <label>Location</label>
-            <input placeholder='Location' onChange={(e) => setLocation(e.target.value)} />
+            <label>contact email</label>
+            <input placeholder='' onChange={(e) => setContactemail(e.target.value)} />
         </Form.Field>
-        <Form.Field>
-            <label>Price</label>
-            <input placeholder='Price' onChange={(e) => setPrice(e.target.value)} />
-        </Form.Field>
-        <Form.Field>
-            <label>Maxreservations</label>
-            <input placeholder='Maxreservations' onChange={(e) => setMaxreservations(e.target.value)} />
-        </Form.Field>
-        <Form.Field>
-            <label>Created date</label>
-            <input placeholder='Created date' onChange={(e) => setCreateddate(e.target.value)} />
-        </Form.Field>
-        <Form.Field>
-            <label>When </label>
-            <input placeholder='When' onChange={(e) => setWhenn(e.target.value)} />
-        </Form.Field>
-        <Form.Field>
+        
+        
+        {/* <Form.Field>
             <Checkbox onChange={(e) => setCheckbox(!checkbox)} label='I agree to the Terms and Conditions' />
-        </Form.Field>
+        </Form.Field> */}
         <Button type='submit' onClick={postData} >Submit</Button>
     </Form>
 )}
