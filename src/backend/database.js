@@ -1,5 +1,6 @@
 require("dotenv").config();
-console.log('mamamia',process.env.DB_NAME,process.env.DB_USER )
+
+console.log('MAMAMIA', process.env.DB_PASSWORD, process.env.DB_NAME,)
 // create connection
 let knex;
 try {
@@ -14,7 +15,9 @@ try {
     },
     pool: { min: 0, max: 7 },
   });
-} catch (error) {console.log(error)}
+} catch (error ) {
+  console.log(error)
+}
 
 
 // Check that the connection works
