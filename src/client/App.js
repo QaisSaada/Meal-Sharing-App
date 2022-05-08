@@ -1,21 +1,29 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import TestComponent from "./components/TestComponent/TestComponent";
+import './App.css';
+import React from 'react';
+import Home from './Components/Home';
+import Create from './Components/Create';
+import Read from './Components/Read';
+import Update from './Components/Update';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Meal from './Components/Meal';
 
 function App() {
+  const api = "http://localhost:5000"
   return (
-    <Router>
-      <Route exact path="/">
-        <p>test</p>
-      </Route>
-      <Route exact path="/lol">
-        <p>lol</p>
-      </Route>
-      <Route exact path="/test-component">
-        <TestComponent></TestComponent>
-      </Route>
-    </Router>
+    <BrowserRouter>
+    
+    <Routes> 
+          <Route exact path='/' element={<Home api ={api}/>}></Route> 
+          <Route exact path='/createmeal' element={<Create api ={api}/>}></Route>
+          <Route exact path='/meal' element={<Read api ={api}/>}/>
+          <Route path='/update' element={<Update api ={api}/>}/>
+          <Route path='/meals/:id' element={<Meal api ={api}/>}/>
+    </Routes>         
+    
+ 
+    </BrowserRouter>
   );
+
 }
 
 export default App;

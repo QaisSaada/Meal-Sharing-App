@@ -7,21 +7,26 @@ const knex = require("../database");
 //  all Reservations 
 router.get("/", async (request, response) => {
 try {
-  const allReservations = await knex("reservation").select();
+  const allReservations = await knex("reservation").select(reservation);
   response.json(allReservations)
 } catch (error) {
-  throw error;
+  console.log(error);
 }
 });
 // Adds a new reservation
 
 router.post("/", async (request, response) => {
   try {
+    const now = new Date()
+    console.log(request.body);
+    request.body['createddate'] = now;
     await knex("reservation").insert(request.body)
     response.json({"success": true})
   } catch (error) {
     response.json({"success": false})
-    throw error;
+    console.log(error);
+    
+    // throw error;
   }
 });
 // Returns reservation by id
