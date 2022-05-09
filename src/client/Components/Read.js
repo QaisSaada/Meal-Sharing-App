@@ -16,7 +16,7 @@ const Read = (props) => {
     const [id, setID] = useState(null)    
 const [APIData, setAPIData] = useState([]);
 useEffect(() => {
-    fetch(props.api + "/api/meals/", {method: "GET"})
+    fetch(/* props.api +  */"/api/meals/", {method: "GET"})
     .then(response => response.json())
     .then((data) => {
       console.log("Got response");

@@ -14,6 +14,7 @@ function App() {
     
     <Routes> 
           <Route exact path='/' element={<Home api ={api}/>}></Route> 
+          
           <Route exact path='/createmeal' element={<Create api ={api}/>}></Route>
           <Route exact path='/meal' element={<Read api ={api}/>}/>
           <Route path='/update' element={<Update api ={api}/>}/>
