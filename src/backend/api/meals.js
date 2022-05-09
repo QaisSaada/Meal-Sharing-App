@@ -6,19 +6,25 @@ const knex = require("../database");
 
 
 
+/*router.get("/", async (request, response) => {
+  try {
+    // knex syntax for selecting things. Look up the documentation for knex for further info
+    const titles = await knex("meal").select("title");
+    response.json(titles);
+  } catch (error) {
+    throw error;
+  }
+});*/
 
-
- // all meals 
-router.get("/", async (request, response) => {
+//  all meals 
+/*router.get("/", async (request, response) => {
 try {
   const allMeals = await knex("meal").select();
-  console.log(allMeals);
   response.json(allMeals)
 } catch (error) {
   throw error;
 }
 });
-
 // Adds a new meal
 router.post("/", async (request, response) => {
   try {
@@ -29,7 +35,6 @@ router.post("/", async (request, response) => {
     throw error;
   }
 });
-
 // Returns meal by id
 router.get('/:id', async (request, response) => {
       const meal = await knex("meal").select().where({id: request.params.id});
@@ -45,12 +50,11 @@ router.put("/:id", async (request, response) => {
 router.delete("/:id", async (request, response) => {
   const meal = await knex("meal").where({id: request.params.id}).del();
   response.json(meal);
-  
-})
+})*/
 
 
 // GET api/meals/ query parameters and you should make sure that you can combine them
-router.get("/", async (request, response) => {
+/*router.get("/", async (request, response) => {
     if (request.query.maxPrice) {
       const maxPriceMeal = await knex("meal").select().where('price', '<', Number(request.query.maxPrice))
       response.json(maxPriceMeal)
@@ -70,24 +74,18 @@ router.get("/", async (request, response) => {
       response.send(getTitle)
       )};
 
-     if ("createdAfter" in req.query) {
+    if ("createdAfter" in req.query) {
       const createdAfterMeals = await knex("meal").where("createddate", ">", req.query.createdAfter)
       response.json(createdAfterMeals)
     };
 
-    /* if (limit.request.query) {
+    if (limit.request.query) {
       const limitMeals =  await knex("meal").where.()
       if (meals.length >= 6) {
         meals.splice(0, limit)
       }
-          response.send(limit) */
-  });
- 
-  
-  router.delete("/:id", async (request, response) => {
-  const meal = await knex("meal").where({id: request.params.id}).del();
-  response.json(meal);
-})
+          response.send(limit)
+  });*/
 
   router.get("/", async (request, response) => {
     const meals = await knex("meal").select();
