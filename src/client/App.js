@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Meal from './Components/Meal';
 
 function App() {
-  const api = ""
+  const api = "http://localhost:5000"
   return (
     <BrowserRouter>
     
