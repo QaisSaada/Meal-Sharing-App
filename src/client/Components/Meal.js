@@ -12,7 +12,7 @@ const Meal = () => {
   }, []);
 
   const fetchMeal = () => {
-    fetch(`http://localhost:3000/api/meals/${id}` , {method: "GET", headers: {'Content-Type': 'application/json'}
+    fetch(`/api/meals/${id}` , {method: "GET", headers: {'Content-Type': 'application/json'}
     })
     .then(res => res.json())
     .then((data) => {
