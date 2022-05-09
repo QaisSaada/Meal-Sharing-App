@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Meal from './Components/Meal';
 
 function App() {
-  const api = "process.env.DOMAIN"
+  const api = process.env.DOMAIN;
   console.log(api);
   return (
     <BrowserRouter>
