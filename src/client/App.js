@@ -9,6 +9,7 @@ import Meal from './Components/Meal';
 
 function App() {
   const api = "process.env.DOMAIN"
+  console.log(api);
   return (
     <BrowserRouter>
     
