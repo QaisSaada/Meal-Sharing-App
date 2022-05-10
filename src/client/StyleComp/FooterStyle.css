@@ -1,0 +1,11 @@
+.main-footer {
+display: flex ;
+background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+color: white;
+position: fixed;
+padding: 10px 10px 0px 10px;
+bottom: 0;
+width: 100%;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+}
